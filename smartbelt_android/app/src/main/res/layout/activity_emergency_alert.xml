@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_emergency_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="36dp"
+        android:paddingBottom="32dp">
+
+        <!-- Top Back Bar & Emergency Status Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBackEmergency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="4dp"
+                android:backgroundTint="#3B0D0D"
+                android:fontFamily="sans-serif-bold"
+                android:text="Tutup Sementara"
+                android:textColor="#FCA5A5"
+                android:textSize="12sp"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/ic_arrow_back"
+                app:iconSize="16dp"
+                app:iconTint="#FCA5A5"
+                app:strokeColor="#7F1D1D"
+                app:strokeWidth="1.2dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- Dynamic Live Alert Badge -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_alert_tag_red"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp">
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_countdown_ring" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="🚨 ALARM AKTIF"
+                    android:textColor="#EF4444"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Glowing Emergency Emblem -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            app:cardBackgroundColor="#450A0A"
+            app:cardCornerRadius="26dp"
+            app:cardElevation="12dp"
+            app:strokeColor="#EF4444"
+            app:strokeWidth="2dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="18dp"
+                android:src="@drawable/ic_warning_triangle"
+                app:tint="#F87171" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Main Alert Header Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-black"
+            android:includeFontPadding="true"
+            android:letterSpacing="0.04"
+            android:paddingVertical="2dp"
+            android:text="PERINGATAN DARURAT!"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <!-- Alert Type Badge -->
+        <TextView
+            android:id="@+id/tvAlertType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_alert_tag_red"
+            android:fontFamily="sans-serif-bold"
+            android:includeFontPadding="true"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="7dp"
+            android:text="BENTURAN JATUH TERDETEKSI"
+            android:textColor="#FCA5A5"
+            android:textSize="12sp" />
+
+        <!-- Center Glass Hero Card: Countdown & Resident Profile -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="#2A0709"
+            app:cardCornerRadius="26dp"
+            app:cardElevation="8dp"
+            app:strokeColor="#991B1B"
+            app:strokeWidth="1.5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="24dp"
+                android:paddingHorizontal="18dp">
+
+                <TextView
+                    android:id="@+id/tvCountdownLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:includeFontPadding="true"
+                    android:paddingVertical="4dp"
+                    android:text="Panggilan &amp; SMS Darurat Otomatis dalam:"
+                    android:textColor="#FCA5A5"
+                    android:textSize="13sp" />
+
+                <!-- Apple Watch Style Ring Countdown Widget -->
+                <RelativeLayout
+                    android:layout_width="104dp"
+                    android:layout_height="104dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_countdown_ring"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvCountdown"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:fontFamily="sans-serif-black"
+                        android:includeFontPadding="false"
+                        android:text="10"
+                        android:textColor="@color/white"
+                        android:textSize="50sp" />
+                </RelativeLayout>
+
+                <!-- Resident Details Divider Line -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="#450A0A" />
+
+                <!-- Resident Info Profile Container -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <!-- Resident Avatar Circle -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_marginEnd="12dp"
+                        app:cardBackgroundColor="#580C0C"
+                        app:cardCornerRadius="22dp"
+                        app:strokeColor="#EF4444"
+                        app:strokeWidth="1dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="9dp"
+                            android:src="@drawable/ic_person"
+                            app:tint="#FCA5A5" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvResidentNameAlert"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:includeFontPadding="true"
+                            android:text="Bapak Yohannes Sitompul"
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/tvLocationAlert"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:includeFontPadding="true"
+                            android:text="Kamar A-01 • Wisma INAKAKA Ambon"
+                            android:textColor="#FCA5A5"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Telemetry Sensor Impact Badge -->
+                <TextView
+                    android:id="@+id/tvSvmImpact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_alert_card_glass"
+                    android:fontFamily="sans-serif-bold"
+                    android:includeFontPadding="true"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="7dp"
+                    android:text="Kekuatan Benturan: SVM 3.45g"
+                    android:textColor="#FECACA"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Auto-Call Priority Sequence Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardCallSequence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="#1F0608"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="4dp"
+            app:strokeColor="#7F1D1D"
+            app:strokeWidth="1.2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <!-- Priority Call Bar Title -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        app:cardBackgroundColor="#064E3B"
+                        app:cardCornerRadius="10dp"
+                        app:strokeColor="#10B981"
+                        app:strokeWidth="1dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="7dp"
+                            android:src="@drawable/ic_call"
+                            app:tint="#34D399" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/tvCallTargetTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:text="Panggilan Darurat Berurutan"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvCallCycleStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_alert_tag_green"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp"
+                        android:text="Auto Loop"
+                        android:textColor="#34D399"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvCurrentCallingContact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Memanggil Prioritas #1: Budi Sudirman..."
+                    android:textColor="#FCA5A5"
+                    android:textSize="13sp" />
+
+                <!-- Priority Call Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnDialCurrent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="6dp"
+                        android:fontFamily="sans-serif-bold"
+                        android:text="Panggil Sekarang"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:backgroundTint="#10B981"
+                        app:cornerRadius="14dp"
+                        app:icon="@drawable/ic_call"
+                        app:iconSize="16dp"
+                        app:iconTint="@color/white" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnNextContact"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="6dp"
+                        android:fontFamily="sans-serif-bold"
+                        android:text="Berikutnya ⏭"
+                        android:textColor="#FCA5A5"
+                        android:textSize="12sp"
+                        app:backgroundTint="#3B0D0D"
+                        app:cornerRadius="14dp"
+                        app:strokeColor="#7F1D1D"
+                        app:strokeWidth="1.2dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Primary Action Button: Batalkan Alarm -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancelAlarm"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginTop="22dp"
+            android:fontFamily="sans-serif-black"
+            android:letterSpacing="0.04"
+            android:text="BATALKAN ALARM"
+            android:textColor="#DC2626"
+            android:textSize="15sp"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="20dp"
+            app:elevation="6dp"
+            app:icon="@drawable/ic_check_circle"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            app:iconSize="22dp"
+            app:iconTint="#DC2626" />
+
+        <!-- Two Secondary Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal">
+
+            <!-- Call Caregiver Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCallCaregiver"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-black"
+                android:text="TELEPON"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:cornerRadius="18dp"
+                app:icon="@drawable/ic_call"
+                app:iconGravity="textStart"
+                app:iconSize="18dp"
+                app:iconTint="@color/white"
+                app:strokeColor="#7F1D1D"
+                app:strokeWidth="1.5dp" />
+
+            <!-- View Map Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnViewMap"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-black"
+                android:text="LIHAT PETA"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:cornerRadius="18dp"
+                app:icon="@drawable/ic_map"
+                app:iconGravity="textStart"
+                app:iconSize="18dp"
+                app:iconTint="@color/white"
+                app:strokeColor="#7F1D1D"
+                app:strokeWidth="1.5dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

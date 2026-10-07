@@ -1,0 +1,16 @@
+/build/
+/dist/
+/nbdist/
+/.nb-gradle/
+*.class
+
+# Android
+smartbelt_android/.gradle/
+smartbelt_android/build/
+smartbelt_android/app/build/
+
+# Java Backend
+smartbelt-backend-jersey/target/
+
+# Microsoft Word temporary files
+~$*

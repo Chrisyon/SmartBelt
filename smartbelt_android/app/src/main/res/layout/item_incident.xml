@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="6dp"
+    app:cardBackgroundColor="@color/bg_card"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="2dp"
+    app:strokeColor="@color/stroke_card"
+    app:strokeWidth="1.2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top Header: Icon + Incident Type + Status Badge -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivIncidentIcon"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_ios_icon_squircle"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_warning_triangle"
+                    app:tint="#DC2626" />
+
+                <TextView
+                    android:id="@+id/tvIncidentType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="JATUH TERDETEKSI"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <!-- Apple Pill Status Badge -->
+            <TextView
+                android:id="@+id/tvIncidentStatusBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_badge_online"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="DIBATALKAN"
+                android:textColor="#F59E0B"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <!-- Resident Name -->
+        <TextView
+            android:id="@+id/tvIncidentResident"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-bold"
+            android:text="Bapak Yohannes Sitompul (Kamar A-01)"
+            android:textColor="#334155"
+            android:textSize="14sp" />
+
+        <!-- Timestamp -->
+        <TextView
+            android:id="@+id/tvIncidentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Waktu: 2026-09-02 12:37:01"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/tvLongLat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Longtitude Latitude"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <!-- Metrics Detail in Subtle Pill Box -->
+        <TextView
+            android:id="@+id/tvIncidentSvm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@color/bg_app"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:text="Dampak SVM: 2.580g • Sudut Pitch: -33.1°"
+            android:textColor="#475569"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

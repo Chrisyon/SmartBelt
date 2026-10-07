@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Smart-Belt Caregiver</string>
+    <string name="title_dashboard">Smart-Belt IoT Dashboard</string>
+    <string name="subtitle_dashboard">Monitoring Deteksi Jatuh Real-Time</string>
+</resources>
